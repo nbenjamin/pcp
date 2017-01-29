@@ -23,7 +23,7 @@ response
 "lastName": "Adam",
 "location": "Bangalore"
 }
-,,,
+```
 
 2. GET doctor by Location
 `http://localhost:8080/pcp/doctors/location/Bangalore`
@@ -44,13 +44,13 @@ response
 "location": "Bangalore"
 }
 ]
-,,,
+```
 
 3. POST - create new Doctor
 
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 9e7cfef9-affa-08a5-0ab3-8010b45040cc" -d '{"firstName":"Donald","lastName":"Trumb","location":"Kochi"}' "http://localhost:8080/pcp/doctors"
 
-Reponse status will 201 (Created)
+Response status will be created with 201 HTTP status code
 
 
 ## High Level Design 
