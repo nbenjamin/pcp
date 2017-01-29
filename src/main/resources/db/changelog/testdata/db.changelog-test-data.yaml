@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+     id: insert-into-doctor
+     author: doctor-service
+     preConditions:
+       - onFail: MARK_RAN
+     changes:
+      - loadUpdateData:
+            columns:
+            - column:
+                name: id
+                header: id
+                type: NUMERIC
+            - column:
+                name: firstName
+                header: firstName
+                type: STRING
+            - column:
+                name: lastName
+                header: lastName
+                type: STRING
+            - column:
+                name: location
+                header: location
+                type: STRING
+            encoding: UTF-8
+            file: db/changelog/testdata/test-data.csv
+            primaryKey: id
+            quotchar: ""
+            separator: ","
+            tableName: doctor

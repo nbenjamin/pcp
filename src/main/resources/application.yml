@@ -1,0 +1,23 @@
+spring:
+  profiles: 
+    active: local
+  application:
+    name: pcp-service
+
+---
+spring:
+  profiles: local
+
+datasource:
+  driverClassName: org.hsqldb.jdbc.JDBCDriver
+  url: "jdbc:hsqldb:mem:local"
+
+---            
+spring:
+  profiles: prod
+
+datasource:
+  database: POSTGRESQL
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/pcp
+

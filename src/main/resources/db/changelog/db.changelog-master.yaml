@@ -1,0 +1,29 @@
+--- 
+databaseChangeLog: 
+  - 
+    changeSet:
+      id: create-pcpservice-table-doctor-1
+      author: pcp
+      changes: 
+        - 
+          createTable: 
+            columns: 
+              - column:
+                  autoIncrement: true
+                  constraints: 
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: int
+              - column:
+                  name: firstName
+                  type: VARCHAR(100)
+              - column:
+                  name: lastName
+                  type: VARCHAR(100)
+              - column:
+                  name: location
+                  type: VARCHAR(100)
+            tableName: doctor
+  - include:
+      file: db/changelog/testdata/db.changelog-test-data.yaml
