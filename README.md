@@ -48,7 +48,23 @@ response
 
 3. POST - create new Doctor
 
+Download and install [postman](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwj6rLWxqufRAhXC4iYKHWeaDs4QFggcMAA&url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fpostman%2Ffhbjgbiflinjbdggehcddcbncdddomop%3Fhl%3Den&usg=AFQjCNE_Yq59TT1ZExzJ68FTldg4ho_lGw&sig2=6CibPoz_Mn_6UuCyM1xLqQ)
+url - `http://localhost:8080/pcp/doctors`
+
+Request body :
+```json
+{
+  "firstName": "Donald",
+  "lastName": "Trumb",
+  "location": "Kochi"
+}
+```
+
+alternate option is to use cURL -
+
+``` curl
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 9e7cfef9-affa-08a5-0ab3-8010b45040cc" -d '{"firstName":"Donald","lastName":"Trumb","location":"Kochi"}' "http://localhost:8080/pcp/doctors"
+```
 
 Response status will be created with 201 HTTP status code
 
