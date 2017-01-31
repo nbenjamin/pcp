@@ -20,7 +20,6 @@ import java.time.format.DateTimeFormatter;
 
 import javax.sql.DataSource;
 
-import static com.capitalone.omega.shared.domain.test.Matchers.omegaExceptionWithErrorId;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -55,15 +54,6 @@ public class JdbcDoctorRepositoryTest {
     assertThat(actual.getFirstName(), is(equalTo("Ryan")));
     assertThat(actual.getLastName(), is(equalTo("Adam")));
     assertThat(actual.getLocation(), is(equalTo("Bangalore")));
-  }
-
-  @Test
-  public void getDoctor_invalidId_throwsException() {
-
-    thrown
-        .expect(omegaExceptionWithErrorId("JdbcDoctorRepositoryGetDoctorByIdAccessException"));
-
-    subject.getDoctor(1);
   }
 
   @Bean

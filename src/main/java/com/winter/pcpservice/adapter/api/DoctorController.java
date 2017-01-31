@@ -25,7 +25,6 @@ public class DoctorController {
 
   @RequestMapping(value = "/doctors/{id}")
   public Doctor getDoctor(@PathVariable("id") Integer id) {
-    System.out.println(doctorRepository.getDoctor(id));
     return doctorRepository.getDoctor(id);
   }
 

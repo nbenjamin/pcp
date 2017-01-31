@@ -1,33 +1,31 @@
 package com.winter.pcpservice;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-import java.net.URI;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import javax.sql.DataSource;
+import com.winter.pcpservice.app.Application;
+import com.winter.pcpservice.domain.Doctor;
 
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
+
+import javax.sql.DataSource;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import com.winter.pcpservice.app.Application;
-import com.winter.pcpservice.domain.Doctor;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -35,8 +33,8 @@ import com.winter.pcpservice.domain.Doctor;
 @Ignore
 public class AcceptanceTestSteps {
 
-  private static final DateTimeFormatter DATE_TIME_FORMATTER =
-      DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  @Value("${local.server.port}")
+  int port;
 
   @Autowired
   @Qualifier("dataSource")
@@ -52,7 +50,8 @@ public class AcceptanceTestSteps {
   @When("^the API is called for doctor ID \"([^\"]*)\"$")
   public void the_API_is_called_for_doctor_ID(String doctorId) throws Throwable {
 
-    String url = UriComponentsBuilder.fromUri(new URI("localhost:8080/")).pathSegment("pcp/doctors")
+    String url = UriComponentsBuilder.fromUri(new URI("http://localhost:"+ port)).pathSegment
+            ("pcp/doctors")
         .pathSegment(doctorId).build().toUriString();
 
     getDoctorByIdResponse = new RestTemplate().getForEntity(url, Doctor.class);
