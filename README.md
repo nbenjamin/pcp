@@ -78,3 +78,6 @@ Response status will be created with 201 HTTP status code
 mvn clean install
 ```
 
+## Travis integration for CI
+[pcp build](https://travis-ci.org/nbenjamin/pcp)
+
