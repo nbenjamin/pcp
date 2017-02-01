@@ -79,5 +79,6 @@ mvn clean install
 ```
 
 ## Travis integration for CI
+[![Build Status](https://travis-ci.org/nbenjamin/pcp.svg?branch=master)](https://travis-ci.org/nbenjamin/pcp)
 [pcp build](https://travis-ci.org/nbenjamin/pcp)
 
