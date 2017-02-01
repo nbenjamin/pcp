@@ -2,6 +2,10 @@
 Base service for new [Spring Boot](http://projects.spring.io/spring-boot/) 
 based microservices.
 
+## Travis integration for CI
+[![Build Status](https://travis-ci.org/nbenjamin/pcp.svg?branch=master)](https://travis-ci.org/nbenjamin/pcp)
+[pcp build](https://travis-ci.org/nbenjamin/pcp)
+
 ## Getting Started
 
 ```bash
@@ -78,7 +82,4 @@ Response status will be created with 201 HTTP status code
 mvn clean install
 ```
 
-## Travis integration for CI
-[![Build Status](https://travis-ci.org/nbenjamin/pcp.svg?branch=master)](https://travis-ci.org/nbenjamin/pcp)
-[pcp build](https://travis-ci.org/nbenjamin/pcp)
 
